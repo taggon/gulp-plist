@@ -1,0 +1,43 @@
+{
+  "name": "gulp-plist",
+  "version": "0.1.0",
+  "description": "gulp plugin to manage Mac OS Plist",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taggon/gulp-plist.git"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "plist",
+    "xml",
+    "json",
+    "mac",
+    "apple"
+  ],
+  "author": {
+    "name": "Taegon Kim",
+    "email": "gonom9@gmail.com",
+    "url": "https://github.com/taggon"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taggon/gulp-plist/issues"
+  },
+  "homepage": "https://github.com/taggon/gulp-plist#readme",
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "bplist-creator": "0.0.6",
+    "bplist-parser": "^0.1.0",
+    "deepmerge": "^0.2.10",
+    "gulp-util": "^3.0.7",
+    "plist": "^1.2.0",
+    "through2": "^2.0.0"
+  }
+}
