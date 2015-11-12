@@ -1,7 +1,7 @@
 # gulp-plist [![Build Status](https://travis-ci.org/taggon/gulp-plist.svg?branch=master)](https://travis-ci.org/taggon/gulp-plist)
 
 gulp-plist is a [gulp](https://github.com/gulpjs/gulp) plugin modifies Mac OS Plist (property list) files which are often used in OS X and iOS applications.
-It can read/write both binary and plain xml plist.
+It can read/write both binary and plain xml plist format.
 
 ## Install
 ```
