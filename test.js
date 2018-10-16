@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const gutil = require('gulp-util');
+const Vinyl = require('vinyl');
 const assert = require('assert');
 const plist = require('plist');
 const peditor = require('.');
@@ -97,7 +97,7 @@ function readFile(filename) {
   const filepath = path.join(__dirname, 'sample', filename);
 
   return (
-    new gutil.File({
+    new Vinyl({
       path: filepath,
       contents: fs.readFileSync(filepath)
     })

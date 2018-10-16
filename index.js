@@ -2,7 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const PluginError = require('gulp-util').PluginError;
+const PluginError = require('plugin-error');
 const through = require('through2');
 const merge = require('deepmerge');
 const plist = require('plist');
