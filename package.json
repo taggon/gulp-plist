@@ -2,9 +2,15 @@
   "name": "gulp-plist",
   "version": "0.1.0",
   "description": "gulp plugin to manage Mac OS Plist",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint '{src,__tests__}/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc --project tsconfig.json",
+    "prepublish": "npm run build",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch"
   },
   "repository": {
     "type": "git",
@@ -29,16 +35,102 @@
     "url": "https://github.com/taggon/gulp-plist/issues"
   },
   "homepage": "https://github.com/taggon/gulp-plist#readme",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/index.js"
+  ],
+  "engines": {
+    "node": ">10.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.{js,ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "{src,__tests__}/**/*.{js,ts}": [
+      "eslint",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "overrides": [
+      {
+        "files": [
+          "*.json",
+          "*.yml"
+        ],
+        "options": {
+          "tabWidth": 2,
+          "singleQuote": false
+        }
+      }
+    ]
+  },
+  "jest": {
+    "transform": {
+      ".ts": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/"
+    ],
+    "collectCoverageFrom": [
+      "src/*.ts"
+    ]
+  },
   "devDependencies": {
-    "mocha": "^5.2.0",
+    "@types/gulp": "^4.0.6",
+    "@types/jest": "^25.1.2",
+    "@types/plist": "^3.0.2",
+    "@types/through2": "^2.0.34",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "gulp": "^4.0.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5",
     "vinyl": "^2.2.0"
   },
   "dependencies": {
-    "bplist-creator": "0.0.7",
-    "bplist-parser": "^0.1.0",
+    "bplist-creator": "^0.0.8",
+    "bplist-parser": "^0.2.0",
     "deepmerge": "^2.2.1",
     "plist": "^3.0.1",
     "plugin-error": "^1.0.1",
-    "through2": "^2.0.0"
+    "through2": "^3.0.1"
   }
 }
