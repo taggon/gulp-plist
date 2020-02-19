@@ -36,9 +36,7 @@
   },
   "homepage": "https://github.com/taggon/gulp-plist#readme",
   "files": [
-    "LICENSE",
-    "README.md",
-    "dist/index.js"
+    "dist"
   ],
   "engines": {
     "node": ">10.0.0"
