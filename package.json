@@ -1,6 +1,6 @@
 {
   "name": "gulp-plist",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "description": "gulp plugin to manage Mac OS Plist",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
