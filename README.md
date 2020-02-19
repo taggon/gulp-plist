@@ -12,26 +12,26 @@ $ npm install --save-dev gulp-plist
 
 ```js
 const gulp = require('gulp');
-const peditor = require('gulp-plist');
+const plist = require('gulp-plist');
 
-gulp.task('default', function(){
+gulp.task('default', () => {
   return gulp.src('src/Info.plist')
-    .pipe(peditor({
+    .pipe(plist({
       CFBundleDisplayName: 'My App'
     })
     .pipe(gulp.dest('dist'));
 });
 ```
 
-Or, you can pass an editor function to the plugin:
+Or, you can pass a modifier function to the plugin:
 
 ```js
 const gulp = require('gulp');
-const peditor = require('gulp-plist');
+const plist = require('gulp-plist');
 
-gulp.task('default', function(){
+gulp.task('default', () => {
   return gulp.src('src/Info.plist')
-    .pipe(peditor(function(json){
+    .pipe(plist(json => {
       json.CFBundleDisplayName = 'My App';
       return json;
     })
@@ -44,11 +44,11 @@ Currently only `writeBinary` option is supported. If you want to write binary pl
 
 ```js
 const gulp = require('gulp');
-const peditor = require('gulp-plist');
+const plist = require('gulp-plist');
 
-gulp.task('default', function(){
+gulp.task('default', () => {
   return gulp.src('src/Info.plist')
-    .pipe(peditor({
+    .pipe(plist({
       CFBundleDisplayName: 'My App'
     }, {
       writeBinary: true
@@ -56,10 +56,6 @@ gulp.task('default', function(){
     .pipe(gulp.dest('dist'));
 });
 ```
-
-## Known Issues
-
-- Not supported modifying `<data>` type yet.
 
 ## License
 
