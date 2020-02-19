@@ -68,9 +68,8 @@ export default function(
     const opts = Object.assign({}, defaultOptions, options || {});
     const mod = createModifer(modifier);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     transform._transform = function _transform(
-        data: any,
+        data: any, // eslint-disable-line @typescript-eslint/no-explicit-any
         encoding: string,
         callback: TransformCallback
     ): void {
